@@ -1,8 +1,9 @@
 import express from "express";
-import taskRouter from "./routers/taskRouter.js";
+import task_router from "./router/task.js";
 
 const app = express();
+
 app.use(express.json());
-app.use('/task', taskRouter);
+app.use("/task", task_router);
 
 export default app;
