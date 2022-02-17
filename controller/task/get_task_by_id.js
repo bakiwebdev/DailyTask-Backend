@@ -1,39 +1,27 @@
-/**
- * 
- * Tasks to be done:
- * 1) Check if the user id is present in the request => completed
- * 2) Check if the id is valid
- * 3) Check if any query params are present Type: string & Status: string => completed
- * 4) if type and status are not present send all user tasks
- * 5) if type is present send all user tasks with the type
- * 6) if status is present send all user tasks with the status
- * 7) if type and status are present send all user tasks with the type and status
- * 
- */
-import fake_task from "../../utils/fake_task.js";
+import { GetTasksByUserId } from "../../utils/TaskDB.js";
 
+// return all the tasks of the user
 const UserTask = (id) => {
-    console.log(`Id dataType is: ${typeof id} and task userId datatype : ${typeof fake_task[0].userId}`);
-    const user_tasks = fake_task.filter(task =>task.userId == id);
+    const user_tasks = GetTasksByUserId(id);
     return user_tasks;
 }
-
+// Return the task with the given id and type
 const UserTaskByType = (id, type) => {
-    const user_tasks = fake_task.filter(task =>task.userId == id && task.type == type);
+    const user_tasks = GetTasksByUserId(id).filter(task =>task.type == type);
     return user_tasks;
 }
-
+// Return the tasks with the given id and status
 const UserTaskByStatus = (id, status) => {
-    const user_tasks = fake_task.filter(task =>task.userId == id && task.status == status);
+    const user_tasks = GetTasksByUserId(id).filter(task =>task.status == status);
     return user_tasks;
 }
-
+// Return the task with the given id, type, and status
 const UserTaskByTypeAndStatus = (id, type, status) => {
-    const user_tasks = fake_task.filter(task =>task.userId == id && task.type == type && task.status == status);
+    const user_tasks = GetTasksByUserId(id).filter(task =>task.type == type && task.status == status);
     return user_tasks;
 }
 
-const GetTask = async (req, res) => {
+const GetTaskById = async (req, res) => {
     const id = req.params.id;
     if(!id) {
         res.status(400).send('Id is not present in the request');
@@ -57,4 +45,4 @@ const GetTask = async (req, res) => {
     }
 }
 
-export default GetTask;
+export default GetTaskById;
