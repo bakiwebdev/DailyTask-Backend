@@ -1,9 +1,5 @@
-/**
- * 1) Check if the user id is present in the request 
- * 2) Check if the id is valid
- * 3) Check if request body is present
- * 4) Check if the request body is valid : check for title, description, type, status
- */
+import { InsertTask } from "../../utils/TaskDB.js";
+
 const PostTask = async (req, res) => {
     const user_id = req.params.id;
     const { title, description, type, status } = req.body;
@@ -35,6 +31,8 @@ const PostTask = async (req, res) => {
             status,
             userId: user_id
         }
+
+        InsertTask(task);
         res.status(201).send(task);
     } catch (error) {
         res.status(500).send(error);
