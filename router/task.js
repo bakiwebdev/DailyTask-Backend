@@ -1,21 +1,19 @@
-// import express from "express";
-// import PostTask from "../controller/task/post_task.js";
-// import GetTaskById from "../controller/task/get_task_by_id.js";
-// import GetAllTasks from "../controller/task/get_all_tasks.js";
+import express from "express";
+import AddTask from "../controller/task/add.js";
+import DeleteAll from "../controller/task/delete_all.js";
+import DeleteByID from "../controller/task/delete_by_id.js";
+import GetAll from "../controller/task/get_all.js";
+import GetByID from "../controller/task/get_by_id.js";
+import UpdateTask from "../controller/task/update.js";
 
-// const route = express.Router();
+const route = express.Router();
 
-// route.get("/", GetAllTasks);
-// route.get("/:id", GetTaskById);
-// route.post("/:id", PostTask);
-// route.put("/", (req, res) => {
-//   res.send("task put response");
-// });
-// route.patch("/", (req, res) => {
-//   res.send("task patch response");
-// });
-// route.delete("/", (req, res) => {
-//   res.send("task delete response");
-// });
+route.get("/", GetAll);
+route.get("/:id", GetByID);
+route.post("/", AddTask);
+route.put("/:id", UpdateTask);
+route.patch("/:id", UpdateTask);
+route.delete("/", DeleteAll);
+route.delete("/:id", DeleteByID);
 
-// export default route;
+export default route;
