@@ -12,11 +12,12 @@ const change_password = async (req, res) => {
   try {
     const decoded = jwt.verify(jwt_token, JWT_SECRET);
     const { id, username } = decoded;
-    const { password } = req.body;
-    if (!password || typeof password !== "string") {
+    const plainTextPassword = req.body.password;
+    console.log(`from changePassword controller => id: ${id} username: ${username} password: ${plainTextPassword}`);
+    if (!plainTextPassword || typeof plainTextPassword !== "string") {
         return res.status(400).send("Invalid password");
         }
-    if (password.length < 8) {
+    if (plainTextPassword.length < 8) {
         return res.status(400).send("Password must be at least 8 characters long");
     }
     const user = await getUser({ username });
@@ -24,9 +25,11 @@ const change_password = async (req, res) => {
         return res.status(400).send("Invalid username or password");
     }
     // update password
-    const result = await updatePassword({ id, password });
-    console.log(result);
-    res.status(200).send(result);
+    const password = await bycrypt.hash(plainTextPassword, 10);
+    await updatePassword({ username, password });
+    // generate new token
+    const token = jwt.sign({ id, username }, JWT_SECRET, { expiresIn: "30d" });
+    res.status(200).send(token);
   } catch (err) {
     return res.status(400).send("Invalid token");
   }

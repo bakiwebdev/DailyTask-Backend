@@ -26,6 +26,9 @@ const login = async (req, res) => {
         const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET, { expiresIn: "30d" });
         res.status(200).send(token);
     } 
+    else {
+        res.status(400).send("Invalid username or password");
+    }
 }
 
 export default login;
