@@ -6,7 +6,7 @@ import { getUser } from "../../model/user.js";
 const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
 const AddTask = async (req, res) => {
-  const { jwt_token, task } = req.body;
+  const { jwt_token, task } = req.req.headers;
   console.log(jwt_token, task);
   if (!jwt_token) {
     res.status(401).json({

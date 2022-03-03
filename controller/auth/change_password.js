@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
 const change_password = async (req, res) => {
-  const { jwt_token } = req.body;
+  const { jwt_token } = req.headers;
   if (!jwt_token || typeof jwt_token !== "string") {
     return res.status(400).send("Invalid token");
   }
