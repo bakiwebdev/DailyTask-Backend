@@ -42,18 +42,15 @@ const UpdateTask = async (req, res) => {
     }
     // get task property
     const newData = {};
-    const { title, description, priority, status } = task;
+    const { title, description, isCompleted } = task;
     if (title) {
       newData.title = title;
     }
     if (description) {
       newData.description = description;
     }
-    if (priority) {
-      newData.priority = priority;
-    }
-    if (status) {
-      newData.status = status;
+    if (isCompleted) {
+      newData.isCompleted = isCompleted;
     }
     // update task by id
     const result = await updateTask(task_id, newData);

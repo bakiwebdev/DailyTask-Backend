@@ -24,14 +24,14 @@ export const getByID = async ({ id }) => {
     return task;
 }
 
-export const addTask = async ({ title, description, priority, status, userId }) => {
+export const addTask = async (data) => {
     await client.connect();
     const db = client.db(dbName);
     // check if user already exists
     try{ 
     const result = await db
         .collection(collectionName)
-        .insertOne({ title, description, priority, status, userId });
+        .insertOne(data);
     return result;  
     } catch(err){   
         throw new Error(err.message);       
