@@ -12,6 +12,7 @@ route.get("/", GetAll);
 route.get("/:id", GetByID);
 route.post("/", AddTask);
 route.put("/:id", UpdateTask);
+route.put("/", UpdateTask);
 route.patch("/:id", UpdateTask);
 route.delete("/", DeleteAll);
 route.delete("/:id", DeleteByID);

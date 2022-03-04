@@ -47,6 +47,16 @@ export const updateTask = async ( id, task) => {
     client.close();
     return result;
 };
+export const updateAllToComplete = async (userId) => {
+    console.log('userId', userId);
+    await client.connect();
+    const db = client.db(dbName);
+    const result = await db
+        .collection(collectionName)
+        .updateMany(userId, { $set: { isCompleted: true } });
+    client.close();
+    return result;
+};
 
 export const deleteByID = async ({ id }) => {
     await client.connect();
@@ -60,6 +70,13 @@ export const deleteAll = async ({ userId }) => {
     await client.connect();
     const db = client.db(dbName);
     const result = await db.collection(collectionName).deleteMany({ userId });
+    client.close();
+    return result;
+}
+export const deleteAllCompleted = async ({ userId }) => {
+    await client.connect();
+    const db = client.db(dbName);
+    const result = await db.collection(collectionName).deleteMany({ userId, isCompleted: true });
     client.close();
     return result;
 }
