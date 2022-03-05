@@ -7,11 +7,13 @@ const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
 const UpdateTask = async (req, res) => {
   const { jwt_token } = req.headers;
+  console.log('JWT Token =>',jwt_token);
   const { completed } = req.query;
   if (!jwt_token) {
     res.status(401).json({
-      message: "Unauthorized",
+      message: "Unauthorized Token",
     });
+    return;
   }
   try {
     const { id, username } = jwt.verify(jwt_token, JWT_SECRET);
@@ -19,7 +21,7 @@ const UpdateTask = async (req, res) => {
     // check if the id is the same as the user id
     if (user._id.toString() !== id) {
       res.status(401).json({
-        message: "Unauthorized",
+        message: "Unauthorized user",
       });
       return;
     }
@@ -51,6 +53,7 @@ const UpdateTask = async (req, res) => {
       res.status(401).json({
         message: "Unauthorized",
       });
+      return;
     }
     // get task property
     const newData = {};

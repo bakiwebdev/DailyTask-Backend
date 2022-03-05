@@ -13,11 +13,13 @@ const AddTask = async (req, res) => {
     res.status(401).json({
       message: "Unauthorized",
     });
+    return;
   }
   if (!task) {
     res.status(400).json({
       message: "Bad Request",
     });
+    return;
   }
   try {
     const { id, username } = jwt.verify(jwt_token, JWT_SECRET);
@@ -27,6 +29,7 @@ const AddTask = async (req, res) => {
       res.status(401).json({
         message: "Unauthorized",
       });
+      return;
     }
     // get task property
     const { title, description } = task;
@@ -34,6 +37,7 @@ const AddTask = async (req, res) => {
       res.status(400).json({
         message: "Bad Request",
       });
+      return;
     }
     // dateTime format
     const date_ob = new Date();

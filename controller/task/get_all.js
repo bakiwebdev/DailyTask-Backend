@@ -12,6 +12,7 @@ const GetAll = async (req, res) => {
     res.status(401).json({
       message: "Unauthorized",
     });
+    return;
   }
   try {
     const { id, username } = jwt.verify(jwt_token, JWT_SECRET);
@@ -21,6 +22,7 @@ const GetAll = async (req, res) => {
       res.status(401).json({
         message: "Unauthorized",
       });
+      return;
     }
     // add task to database
     const result = await getAll({ userId: id });

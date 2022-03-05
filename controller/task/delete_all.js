@@ -11,8 +11,9 @@ const DeleteAll = async (req, res) => {
   const { completed } = req.query;
   if (!jwt_token) {
     res.status(401).json({
-      message: "Unauthorized",
+      message: "Unauthorized Token",
     });
+    return;
   }
   try {
     const { id, username } = jwt.verify(jwt_token, JWT_SECRET);

@@ -13,11 +13,13 @@ const GetByID = async (req, res) => {
     res.status(401).json({
       message: "Unauthorized",
     });
+    return;
   }
   if (!task_id || task_id === "") {
     res.status(400).json({
       message: "Bad Request",
     });
+    return;
   }
   try {
     const { id, username } = jwt.verify(jwt_token, JWT_SECRET);
@@ -27,6 +29,7 @@ const GetByID = async (req, res) => {
       res.status(401).json({
         message: "Unauthorized",
       });
+      return;
     }
     // add task to database
     const result = await getByID({ id: task_id });

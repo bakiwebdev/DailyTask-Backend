@@ -18,6 +18,7 @@ const DeleteByID = async (req, res) => {
     res.status(400).json({
       message: "Bad Request",
     });
+    return;
   }
   try {
     const { id, username } = jwt.verify(jwt_token, JWT_SECRET);
@@ -27,6 +28,7 @@ const DeleteByID = async (req, res) => {
       res.status(401).json({
         message: "Unauthorized",
       });
+      return;
     }
     // add task to database
     const result = await deleteByID({ id: task_id });
