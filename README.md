@@ -1,7 +1,7 @@
 # <img src="https://user-images.githubusercontent.com/57604289/155508952-574739e0-fb0d-4d9b-b5d7-2b1c8c37ef4b.png" width="50px" height="50px"> Daily Taks API
 
 
-### Quick link
+### ✨ Quick link
 
 - [About Daily Task API](#about-daily-task)
 - [Technology used](#technology-used)
@@ -10,26 +10,40 @@
 <!-- - [Vision](#vision)
 - [Version](#version) -->
 
-## About Daily Task
+## ✨ About Daily Task
 
 Daily task API provides a gateway to store user tasks and allows users to do CRUD functionality.<br>
 
-### Application Features <br>
+### ✨ Application Features <br>
 - Allow users to create an account.
 - Login user based on credentials.
 - Store task.
 - Provide a list of tasks to the right user.
 - Delete task.
 
+## ✨ Install
 
-## Technology Used
+```
+npm install
+```
+## ✨ Run the app
+```
+npm start
+```
+
+## ✨ Run the app on dev environment (recomanded)
+```
+npm run start:dev
+```
+
+## ✨ Technology Used
 
 - Node JS
 - Express JS
 - MongoDB
 
-## Demo
+## ✨ Demo
 you want to see live demo click [here](https://daily-task-api.herokuapp.com/)
 
-### Note
+### ✨ Note
 ⭐ if you like the project, please leave a star ⭐
