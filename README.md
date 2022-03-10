@@ -36,6 +36,41 @@ npm start
 npm run start:dev
 ```
 
+# REST API
+
+Daily Task RESTapi example described below 
+
+## Registration/Authentication ```/auth``` 
+/auth/register
+### Register Request
+
+```POST /auth/register ```
+```
+curl -i -H 'Accept: application/json' http://localhost:5000/auth/register
+```
+body
+```
+{
+    "fullname": "Biruk Endris",
+    "username": "for_the_sake_of_username",
+    "password": "for_the_sake_of_password"
+}
+```
+### Register Response
+```
+HTTP/1.1 200 OK
+Date: Thu, 24 Feb 2011 12:36:30 GMT
+Status: 200 OK
+Connection: close
+Content-Type: application/json
+[
+  {
+    "acknowledged": true,
+    "insertedId": "622a0c5688579a35c69aebe3"
+  }
+]
+```
+
 ## ✨ Technology Used
 
 - Node JS
