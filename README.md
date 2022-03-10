@@ -1,11 +1,11 @@
 # <img src="https://user-images.githubusercontent.com/57604289/155508952-574739e0-fb0d-4d9b-b5d7-2b1c8c37ef4b.png" width="50px" height="50px"> Daily Taks API
 
-
 ### ✨ Quick link
 
-- [About Daily Task API](#about-daily-task)
-- [Technology used](#technology-used)
-- [Demo](#demo)
+- [About Daily Task API](#-about-daily-task)
+- [RESTapi examples](#-rest-api)
+- [Technology used](#-technology-used)
+- [Demo](#-demo)
 
 <!-- - [Vision](#vision)
 - [Version](#version) -->
@@ -21,6 +21,9 @@ Daily task API provides a gateway to store user tasks and allows users to do CRU
 - Provide a list of tasks to the right user.
 - Delete task.
 
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
+
 ## ✨ Install
 
 ```
@@ -35,6 +38,8 @@ npm start
 ```
 npm run start:dev
 ```
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
 
 # ✨ REST API
 
@@ -103,6 +108,9 @@ Content-Type: application/json
   }
 ]
 ```
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
+
 ## ✨ Task  ```/task``` 
 
 ### ✨ Get Task Request
@@ -176,6 +184,9 @@ Content-Type: application/json
     }
 ]
 ```
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
+
 ## ✨ Technology Used
 
 - Node JS
@@ -185,5 +196,9 @@ Content-Type: application/json
 ## ✨ Demo
 you want to see live demo click [here](https://daily-task-api.herokuapp.com/)
 
-### ✨ Note
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
+
+### 💝 Supporting me
 ⭐ if you like the project, please leave a star ⭐
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
