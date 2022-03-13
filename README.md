@@ -38,6 +38,9 @@ npm start
 ```
 npm run start:dev
 ```
+## ✨ Postman request collection
+
+https://www.getpostman.com/collections/dd23329f56c416aba3fc
 
 [![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks-api)
 
